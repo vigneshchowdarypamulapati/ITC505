@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: "Courier New",cursive;
+            font-size: 40px;
+            text-align: center;
+        }
+        p{
+            font-family:"Edu AU VIC WA NT Guides";
+            font-size:20px;
+            text-align:justify;
+        }
+    </style>
+    </head>
+<body>
+    <h1>LAB-3 Assignment: Serving Fonts</h1>
+    <p>
+        When it comes to serving fonts, I preferred using Google Fonts for this assignment 
+        because it well endowed with fonts and easy to implement.
+        Go to the google fonts website then choose your intended font click on the font and 
+        clipboard the link tag that follows it and then paste it in the head section of your html file. 
+        Once done you can actually refer the fonts right into your CSS file in the hope 
+        that it has the capability to work.
+        Although the fonts that are mapped to your system are allowed, it is discouraged to use them 
+        because some other device may not recognize them. To avoid this confusion interfering 
+        throughout different platforms, It’s more helpful to stick to services such as Google 
+        Fonts or similar font-hosting services.
+        The fonts that I chose are Courier New, Edu AU VIC WA NT Guides. 
+        For h1 tag, I used Handlee; for the paragraph tag, Edu AU VIC WA NT Guides. 
+        I also used other stylings for each tag like, to highlight font size and font weight of each font 
+        in my document. Moreover, I used JavaScript to make the date last 
+        modified on the document appear also on the page.
+    </p>
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+         var x = document.lastModified;
+         document.getElementById('lastModified').textContent = x;
+    </script>
+    </footer>
+</body>
+</html>
