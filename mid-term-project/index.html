@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temple Adventure</h1>
+        
+        <div class="game-container">
+            <div class="image-container">
+                <img id="story-image" src="/api/placeholder/600/400" alt="Story scene">
+            </div>
+            
+            <div class="story-container">
+                <p id="story-text"></p>
+            </div>
+            
+            <div id="choices-container" class="choices-container">
+            </div>
+            
+            <button id="restart-btn" class="restart-button" onclick="startGame()">Restart Adventure</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+         var x = document.lastModified;
+         document.getElementById('lastModified').textContent = x;
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
