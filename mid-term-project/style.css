@@ -1,3 +1,4 @@
+/* General Styles */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;500;600&display=swap');
 
 :root {
@@ -22,8 +23,8 @@ body {
     background: linear-gradient(135deg, var(--background-light) 0%, #e6ccb3 100%);
     color: var(--text-color);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start; 
     min-height: 100vh;
     overflow-x: hidden;
     text-align: center;
@@ -33,6 +34,10 @@ body {
     max-width: 900px;
     margin: 2rem auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    gap: 2rem; 
+    flex-grow: 1; 
 }
 
 h1 {
@@ -59,6 +64,7 @@ h1::after {
                 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(139, 69, 19, 0.2);
     text-align: center;
+    display: block;
 }
 
 .image-container {
@@ -82,7 +88,7 @@ h1::after {
     object-fit: cover; 
 }
 
-.story-container{
+.story-container {
     text-align: center;
     width: 80%;
     margin: 0 auto;
@@ -157,6 +163,7 @@ footer {
     padding: 1.5rem;
     color: var(--primary-color);
     font-size: 0.9rem;
+    margin-top: auto; 
 }
 
 footer::before {
@@ -180,6 +187,42 @@ footer::before {
     }
 }
 
-.story-container, .choice-btn, .image-container {
+.addendum {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f8f4f0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
     animation: fadeIn 0.5s ease-out forwards;
+    width: 100%; 
+    max-width: 900px; 
+    display: block; 
+    margin: 3rem auto; 
+}
+
+.addendum h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.addendum p {
+    font-family: 'Lora', serif;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
