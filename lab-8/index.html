@@ -70,6 +70,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("registrationForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default submission to handle validation
+
                 // Input elements
                 const firstName = document.getElementById("firstName").value.trim();
                 const lastName = document.getElementById("lastName").value.trim();
@@ -79,9 +81,8 @@
 
                 // Regular expressions
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const alphanumericRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/; // alphanumeric password regex
+                const alphanumericRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/; // Alphanumeric password regex
 
-                // Prevent default submission if validation fails
                 let isValid = true;
 
                 // Check empty fields
@@ -120,13 +121,8 @@
                 }
 
                 if (isValid) {
-                    // Simulating successful registration
-                    alert("Registered successfully!");
-                    event.preventDefault(); // Prevent form submission
-                }
-
-                if (!isValid) {
-                    event.preventDefault();  // Prevent form submission if not valid
+                    // Navigate to the success page
+                    window.location.href = "success.html";
                 }
             });
         });
@@ -135,7 +131,7 @@
 <body>
     <div class="form-container">
         <h1>Secure Registration Form</h1>
-        <form id="registrationForm" action="submit.php" method="post">
+        <form id="registrationForm">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
             
