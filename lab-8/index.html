@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Registration Form</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Label Styles */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Input Styles */
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("registrationForm").addEventListener("submit", function (event) {
+                // Input elements
+                const firstName = document.getElementById("firstName").value.trim();
+                const lastName = document.getElementById("lastName").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                // Regular expressions
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const alphanumericRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/; // alphanumeric password regex
+
+                // Prevent default submission if validation fails
+                let isValid = true;
+
+                // Check empty fields
+                if (!firstName || !lastName || !email || !password || !confirmPassword) {
+                    alert("All fields are required.");
+                    isValid = false;
+                }
+
+                // Validate email format
+                if (!emailRegex.test(email)) {
+                    alert("Please enter a valid email address.");
+                    isValid = false;
+                }
+
+                // Check password match
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match.");
+                    isValid = false;
+                }
+
+                // Validate password (must contain alphanumeric characters)
+                if (!alphanumericRegex.test(password)) {
+                    alert("Password must contain at least one letter and one number.");
+                    isValid = false;
+                }
+
+                // Sanitize inputs to prevent XSS
+                const sanitizeInput = (input) => input.replace(/<|>|"|'/g, "");
+
+                const sanitizedFirstName = sanitizeInput(firstName);
+                const sanitizedLastName = sanitizeInput(lastName);
+
+                if (sanitizedFirstName !== firstName || sanitizedLastName !== lastName) {
+                    alert("Special characters are not allowed.");
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Simulating successful registration
+                    alert("Registered successfully!");
+                    event.preventDefault(); // Prevent form submission
+                }
+
+                if (!isValid) {
+                    event.preventDefault();  // Prevent form submission if not valid
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Secure Registration Form</h1>
+        <form id="registrationForm" action="submit.php" method="post">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
