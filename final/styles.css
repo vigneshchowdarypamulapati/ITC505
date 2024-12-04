@@ -1,0 +1,118 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #4CAF50;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Game Board Styling */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px); /* Increased cell size */
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell.is-off {
+    background-color: #333; /* Darker color for the 'off' state */
+}
+
+/* Move Counter Styling */
+.move-counter {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Addendum Section Styling */
+.addendum {
+    background-color: #ffffff;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.addendum h2 {
+    font-size: 28px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.addendum h3 {
+    font-size: 22px;
+    color: #555;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.addendum p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #555;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #game-board {
+        grid-template-columns: repeat(5, 50px); /* Smaller grid size for mobile */
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+    }
+
+    .addendum {
+        padding: 15px;
+    }
+
+    .move-counter {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}

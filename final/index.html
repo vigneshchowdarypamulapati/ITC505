@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights Out Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Lights Out Game</h1>
+    <div id="game-board"></div>
+    
+    <div class="addendum">
+        <h2>Development Process and Reflections</h2>
+        <h3>Process</h3>
+        <p>The first step of the development process involved finding out more about the basic dynamics of the Lights Out game. 
+            I identified the key actions: switching a cell and it is neighbors, shuffling of all the cells in the board while 
+            making it solvable, and the win condition. Structuring the 5x5 board 
+            made the game scalable and was easy to manipulate programmatically using Java Script. 
+            of the grid. For operation of the cells, I designed the <code>toggleLights</code> function that controls cell. 
+            states shift and used the <code>randomizeBoard</code> function to emulate 
+            random clicks for solvable starting states, Last of all, I included the <code>checkWin</code> 
+            a victory function to accompany the gameplay, as well as a moves counter to keep score.</p>
+        <h3>Creative Choices</h3>
+        <p>In the creation of the grid, I chose to use flexible loops, for there is future development, 
+            for instance changing the size of the grid from the one I was using. As such, to ensure that 
+            the Sudoku board is solvable at all times, I opted to perform random clicks by selecting arbitrary 
+            cell positions on an initially solved board rather than random individual cells. Another 
+            advantage derived from that was the improvement in reliability of gameplay. About the new 
+            features: This is why a move counter was put in place; it provides those who are taking their 
+            time to strategies an idea of how far the game has advanced.</p>
+        <h3>Challenges and Solutions</h3>
+        <p>Several challenges arose during development. Handling edge cases for the toggle logic was 
+            tricky since clicking a cell at the edge or corner of the grid could lead to errors. 
+            This was resolved by adding boundary checks for valid indices. Ensuring solvable boards 
+            proved complex; randomizing individual cells often created unsolvable puzzles, so I used 
+            simulated clicks on an initially solved state instead. Resetting the move counter on new 
+            games was another issue, which I addressed by reinitializing the counter during board setup. 
+            Visual clarity also required attention, and I used distinct colors and responsive design for 
+            clear user feedback.</p>
+        <h3>Insights Gained</h3>
+        <p>This project reinforced the importance of modular code design, as splitting logic into smaller 
+            functions like <code>toggleLights</code>, <code>checkWin</code>, and <code>randomizeBoard</code> 
+            simplified debugging and made the code easier to extend. I learned that thoughtful user 
+            feedback—like the move counter and "YOU WIN!" message—greatly enhances player engagement. 
+            Thorough testing of edge cases ensured a smooth experience, teaching me the value of early 
+            error detection. Lastly, designing for scalability allowed me to create a game that could 
+            easily adapt to new rules or configurations, demonstrating the importance of forward-thinking 
+            development practices.</p>
+    </div>
+
+    <!-- Footer comes after the addendum -->
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+</body>
+</html>
